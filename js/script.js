@@ -8,23 +8,14 @@ let NumeroUtente1 = document.getElementById('NumeriUtente1');
 const buttonVerifica = document.getElementById('bottone');
 let randomNum = [];
 let userNum = [];
-
-
+let numeriCorretti = []
 
 
 for (let i = 0 ; i < 5; i++) 
 {
-    let randomGen = parseInt(Math.floor(Math.random() * 10));
+    let randomGen = parseInt(Math.floor(Math.random() * 100));
     console.log(randomGen);
     randomNum.push(randomGen);
-    // if (randomNum.includes(randomGen)) 
-    // {
-    //     i += -1;
-    // } 
-    // else 
-    // {
-        
-    // }
 }
 alert(randomNum);
 
@@ -32,20 +23,25 @@ alert(randomNum);
 
 setTimeout(wait, 3000);
     function wait () 
-{   
-        for( i = 0; i < 5; i++) 
-        { 
-            let userInput = parseInt(prompt("Inserisci un numero"));
-
-            if (randomNum.includes(userInput) && !userNum.includes(userInput)) 
-            {
-                userNum.push(userInput);
-            }
-        }
-        alert("Hai indovinato " + userNum.length + " numero/i : " + userNum);
-           ;
-        
+{   document.getElementById("NumeriUtente1").style.display = 'inline'
+    document.getElementById("bottone").style.display = 'inline'
 }
 
+function check()
+{    
+    let userNumber = parseInt(NumeroUtente1.value);
+    userNum.push(userNumber);
+    NumeroUtente1.value = ''
+    if(randomNum.includes(userNumber) && !numeriCorretti.includes(userNumber))
+    {
+        numeriCorretti.push(userNumber);   
+    }
+    console.log(numeriCorretti);
+    if(userNum.length == randomNum.length)
+    {
+    alert("Hai indovinato " + numeriCorretti.length + " numero/i : " + numeriCorretti);
+    }
+}
+     
 
-// buttonVerifica.addEventListener('click', check);
+buttonVerifica.addEventListener('click', check);
