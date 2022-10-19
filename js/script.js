@@ -21,10 +21,13 @@ alert(randomNum);
 
 // 2.
 
-setTimeout(wait, 3000);
+setTimeout(wait, 30000);
     function wait () 
-{   document.getElementById("NumeriUtente1").style.display = 'inline'
-    document.getElementById("bottone").style.display = 'inline'
+    
+{    
+    document.getElementById("titoloascomparsa").style.display = 'none';
+    document.getElementById("NumeriUtente1").style.display = 'inline';
+    document.getElementById("bottone").style.display = 'inline';
 }
 
 function check()
